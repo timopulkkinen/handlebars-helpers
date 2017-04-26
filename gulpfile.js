@@ -57,7 +57,8 @@ gulp.task('copy-files-for-browserify',['clean'], function() {
     '!./lib/code.js',
     '!./lib/i18n.js',
     '!./lib/markdown.js',
-    '!./lib/match.js'
+    '!./lib/match.js',
+    '!./lib/date.js'
   ], {base: '.'})
   .pipe(strip_line(
     [
@@ -66,7 +67,8 @@ gulp.task('copy-files-for-browserify',['clean'], function() {
       /code: require\('.\/code'\)/,
       /i18n: require\('.\/i18n'\)/,
       /markdown: require\('.\/markdown'\)/,
-      /match: require\('.\/match'\)/
+      /match: require\('.\/match'\)/,
+      /date: require\('.\/date'\)/
     ]))
   .pipe(gulp.dest('./tmp/'));
 });
