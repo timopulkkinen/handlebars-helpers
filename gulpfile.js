@@ -22,6 +22,8 @@ var clean = require('gulp-clean');
 
 var strip_line = require('gulp-strip-line');
 
+var uglify = require('gulp-uglify');
+
 gulp.task('coverage', ['eslint'], function() {
   return gulp.src(['index.js', 'lib/**/*.js'])
     .pipe(istanbul({includeUntested: true}))
@@ -97,6 +99,7 @@ gulp.task('browserify', ['prepare-for-browserify'], function() {
   .pipe(source('index.js'))
   .pipe(derequire())
   .pipe(buffer())
+  .pipe(uglify())
   .pipe(gulp.dest('./dist/browserify/'));
 
 });
