@@ -36,6 +36,7 @@
     "get-value": "^2.0.6",
     "handlebars": "^4.0.11",
     "handlebars-utils": "^1.0.6",
+    "handlebars-helper-create-frame": "https://github.com/timopulkkinen/handlebars-helper-create-frame#master",
     "has-value": "^1.0.0",
     "helper-date": "^1.0.1",
     "helper-markdown": "^1.0.0",
