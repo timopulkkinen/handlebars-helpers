@@ -81,7 +81,6 @@
     "get-object": "^0.2.0",
     "get-value": "^2.0.6",
     "handlebars": "^4.0.11",
-    "handlebars-helper-create-frame": "^0.1.0",
     "handlebars-utils": "^1.0.6",
     "has-value": "^1.0.0",
     "html-tag": "^2.0.0",
