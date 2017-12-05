@@ -26,7 +26,8 @@
   "dependencies": {
     "arr-flatten": "^1.1.0",
     "array-sort": "^0.1.4",
-    "create-frame": "^1.0.0",
+    "class-utils": "https://github.com/timopulkkinen/class-utils#master",
+    "create-frame": "https://github.com/timopulkkinen/create-frame#master",
     "define-property": "^1.0.0",
     "falsey": "^0.3.2",
     "for-in": "^1.0.2",

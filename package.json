@@ -73,7 +73,8 @@
   "dependencies": {
     "arr-flatten": "^1.1.0",
     "array-sort": "^0.1.4",
-    "create-frame": "^1.0.0",
+    "class-utils": "https://github.com/timopulkkinen/class-utils#master",
+    "create-frame": "https://github.com/timopulkkinen/create-frame#master",
     "define-property": "^1.0.0",
     "falsey": "^0.3.2",
     "for-in": "^1.0.2",
@@ -90,7 +91,6 @@
     "is-number": "^4.0.0",
     "kind-of": "^6.0.0",
     "lazy-cache": "^2.0.2",
-    "micromatch": "^3.1.4",
     "relative": "^3.0.2",
     "striptags": "^3.1.0",
     "to-gfm-code-block": "^0.1.1",
