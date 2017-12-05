@@ -67,18 +67,6 @@ gulp.task('copy-files-for-browserify', ['clean'], function() {
     '!./lib/match.js',
     '!./lib/date.js'
   ], {base: '.'})
-  .pipe(strip_line(
-    [
-      /fs: require\('.\/fs'\)/,
-      /path: require\('.\/path'\)/,
-      /logging: require\('.\/logging'\)/,
-      /code: require\('.\/code'\)/,
-      /html: require\('.\/html'\)/,
-      /i18n: require\('.\/i18n'\)/,
-      /markdown: require\('.\/markdown'\)/,
-      /match: require\('.\/match'\)/,
-      /date: require\('.\/date'\)/
-    ]))
   .pipe(gulp.dest('./tmp/'));
 });
 
