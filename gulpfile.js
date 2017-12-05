@@ -9,20 +9,22 @@ var browserify = require('browserify');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 
-var gulp_babel = require("gulp-babel");
-var gulp_sourcemaps = require("gulp-sourcemaps");
+//var gulp_babel = require("gulp-babel");
+//var gulp_sourcemaps = require("gulp-sourcemaps");
 var derequire = require('gulp-derequire');
 
-var glob = require('glob');
-var util = require("gulp-util");
+//var glob = require('glob');
+//var util = require("gulp-util");
 
-var es = require('event-stream');
-var path = require('path');
+//var es = require('event-stream');
+//var path = require('path');
 var clean = require('gulp-clean');
 
 var strip_line = require('gulp-strip-line');
 
 var uglify = require('gulp-uglify');
+
+var gutil = require('gulp-util')
 
 gulp.task('coverage', ['eslint'], function() {
   return gulp.src(['index.js', 'lib/**/*.js'])
@@ -30,6 +32,7 @@ gulp.task('coverage', ['eslint'], function() {
     .pipe(istanbul.hookRequire());
 });
 
+/*
 const BABEL_CONFIG = {
   "plugins": [
     "external-helpers",
@@ -38,8 +41,10 @@ const BABEL_CONFIG = {
   "babelrc": false,
   "moduleIds": false
 };
+*/
+
 gulp.task('clean', function() {
-  return gulp.src(['./tmp', './dist'], {read:false})
+  return gulp.src(['./tmp', './dist'], { read: false })
   .pipe(clean());
 });
 
@@ -48,7 +53,7 @@ gulp.task('clean', function() {
 //  .pipe(gulp.dest('./tmp/lib'));
 //});
 
-gulp.task('copy-files-for-browserify',['clean'], function() {
+gulp.task('copy-files-for-browserify', ['clean'], function() {
   return gulp.src([
     './index.js',
     './lib/**/*.js',
@@ -77,6 +82,7 @@ gulp.task('prepare-for-browserify', ['copy-files-for-browserify'], function() {
 
 });
 
+
 gulp.task('browserify', ['prepare-for-browserify'], function() {
 
   var b = browserify({
@@ -96,12 +102,12 @@ gulp.task('browserify', ['prepare-for-browserify'], function() {
   b.ignore('moment');
   b.ignore('date.js');
 
-
   return b.bundle()
   .pipe(source('index.js'))
   .pipe(derequire())
   .pipe(buffer())
   .pipe(uglify())
+  .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString(), err.fileName); })
   .pipe(gulp.dest('./dist/browserify/'));
 
 });
