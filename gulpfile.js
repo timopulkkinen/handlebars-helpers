@@ -71,6 +71,7 @@ gulp.task('copy-files-for-browserify', ['clean'], function() {
       /fs: require\('.\/fs'\)/,
       /path: require\('.\/path'\)/,
       /code: require\('.\/code'\)/,
+      /html: require\('.\/html'\)/,
       /i18n: require\('.\/i18n'\)/,
       /markdown: require\('.\/markdown'\)/,
       /match: require\('.\/match'\)/,
