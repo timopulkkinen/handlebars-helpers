@@ -60,6 +60,7 @@ gulp.task('copy-files-for-browserify', ['clean'], function() {
     '!./lib/fs.js',
     '!./lib/path.js',
     '!./lib/code.js',
+    '!./lib/html.js',
     '!./lib/i18n.js',
     '!./lib/markdown.js',
     '!./lib/match.js',
