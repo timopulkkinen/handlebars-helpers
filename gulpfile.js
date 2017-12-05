@@ -59,6 +59,7 @@ gulp.task('copy-files-for-browserify', ['clean'], function() {
     './lib/**/*.js',
     '!./lib/fs.js',
     '!./lib/path.js',
+    '!./lib/logging.js',
     '!./lib/code.js',
     '!./lib/html.js',
     '!./lib/i18n.js',
@@ -70,6 +71,7 @@ gulp.task('copy-files-for-browserify', ['clean'], function() {
     [
       /fs: require\('.\/fs'\)/,
       /path: require\('.\/path'\)/,
+      /logging: require\('.\/logging'\)/,
       /code: require\('.\/code'\)/,
       /html: require\('.\/html'\)/,
       /i18n: require\('.\/i18n'\)/,
