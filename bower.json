@@ -26,8 +26,9 @@
   "dependencies": {
     "arr-flatten": "^1.1.0",
     "array-sort": "^0.1.4",
-    "class-utils": "https://github.com/timopulkkinen/class-utils#master",
-    "create-frame": "https://github.com/timopulkkinen/create-frame#master",
+    "class-utils": "git://github.com/timopulkkinen/class-utils#master",
+
+    "create-frame": "git://github.com/timopulkkinen/create-frame#master",
     "define-property": "^1.0.0",
     "falsey": "^0.3.2",
     "for-in": "^1.0.2",
@@ -36,7 +37,7 @@
     "get-value": "^2.0.6",
     "handlebars": "^4.0.11",
     "handlebars-utils": "^1.0.6",
-    "handlebars-helper-create-frame": "https://github.com/timopulkkinen/handlebars-helper-create-frame#master",
+    "handlebars-helper-create-frame": "git://github.com/timopulkkinen/handlebars-helper-create-frame#master",
     "has-value": "^1.0.0",
     "helper-date": "^1.0.1",
     "helper-markdown": "^1.0.0",
