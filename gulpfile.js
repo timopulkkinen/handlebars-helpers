@@ -20,11 +20,9 @@ var derequire = require('gulp-derequire');
 //var path = require('path');
 var clean = require('gulp-clean');
 
-var strip_line = require('gulp-strip-line');
-
 var uglify = require('gulp-uglify');
 
-var gutil = require('gulp-util')
+var gutil = require('gulp-util');
 
 gulp.task('coverage', ['eslint'], function() {
   return gulp.src(['index.js', 'lib/**/*.js'])
@@ -44,8 +42,7 @@ const BABEL_CONFIG = {
 */
 
 gulp.task('clean', function() {
-  return gulp.src(['./tmp', './dist'], { read: false })
-  .pipe(clean());
+  return gulp.src(['./tmp', './dist'], { read: false }).pipe(clean());
 });
 
 //gulp.task('copy-lib-for-browserify', ['clean'], function() {
@@ -66,14 +63,12 @@ gulp.task('copy-files-for-browserify', ['clean'], function() {
     '!./lib/markdown.js',
     '!./lib/match.js',
     '!./lib/date.js'
-  ], {base: '.'})
-  .pipe(gulp.dest('./tmp/'));
+  ], {base: '.'}).pipe(gulp.dest('./tmp/'));
 });
 
 gulp.task('prepare-for-browserify', ['copy-files-for-browserify'], function() {
 
 });
-
 
 gulp.task('browserify', ['prepare-for-browserify'], function() {
 
@@ -94,24 +89,8 @@ gulp.task('browserify', ['prepare-for-browserify'], function() {
   b.ignore('moment');
   b.ignore('date.js');
 
-  return b.bundle()
-  .pipe(source('index.js'))
-  .pipe(derequire())
-  .pipe(buffer())
-  .pipe(uglify())
-  .on('error', function (err) { gutil.log(gutil.colors.red('[Error]'), err.toString(), err.fileName); })
-  .pipe(gulp.dest('./dist/browserify/'));
+  return b.bundle().pipe(source('index.js')).pipe(derequire()).pipe(buffer()).pipe(uglify()).on('error', function(err) { gutil.log(gutil.colors.red('[Error]'), err.toString(), err.fileName); }).pipe(gulp.dest('./dist/browserify/'));
 
-});
-
-gulp.task('mocha', ['coverage'], function() {
-  return gulp.src('test/{integration/,}*.js')
-    .pipe(mocha({reporter: 'spec'}))
-    .pipe(istanbul.writeReports())
-    .pipe(istanbul.writeReports({
-      reporters: [ 'text', 'text-summary' ],
-      reportOpts: {dir: 'coverage', file: 'summary.txt'}
-    }));
 });
 
 gulp.task('eslint', function() {
@@ -127,4 +106,4 @@ gulp.task('unused', function() {
     .pipe(unused({keys: Object.keys(utils)}));
 });
 
-gulp.task('default', ['mocha']);
+gulp.task('default');
